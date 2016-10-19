@@ -32,31 +32,27 @@ if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
 
 	mkdir temp_install
 
-	wget http://security.ubuntu.com/ubuntu/pool/universe/g/gnome-desktop/libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb temp_install/
-	wget http://launchpadlibrarian.net/183708483/libxp6_1.0.2-2_amd64.deb temp_install/
+	wget http://security.ubuntu.com/ubuntu/pool/universe/g/gnome-desktop/libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb -P temp_install/
+	wget http://launchpadlibrarian.net/183708483/libxp6_1.0.2-2_amd64.deb -P temp_install/
 
 	function clean
 	{
 		sudo rm -R temp_*
-		sudo rm libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb*
-		sudo rm libxp6_1.0.2-2_amd64.deb*
 	}
 
-	sudo gdebi libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb
+	sudo gdebi temp_install/libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb
 	if sudo apt-get -qq install libgnome-desktop-2-17; then
 		echo "libgnome-desktop-2-17 : successfully installed"
 	else
 		echo "libgnome-desktop-2-17 : installation unsuccessful"
-		clean
 		exit 1
 	fi
 
-	sudo gdebi libxp6_1.0.2-2_amd64.deb
+	sudo gdebi temp_install/libxp6_1.0.2-2_amd64.deb
 	if sudo apt-get -qq install libxp6; then
 		echo "libxp6 : successfully installed"
 	else
 		echo "libxp6 : installation unsuccessful"
-		clean
 		exit 1
 	fi
 
