@@ -21,7 +21,7 @@
 
 echo "Ubuntu 16.04 Installer for IBM notes 9.0.1"
 
-if [ $(basename $1) == ibm-notes-9.0.1.i586.deb ]; then
+if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
 
 	echo "Installing necessary packages before installation"
 
