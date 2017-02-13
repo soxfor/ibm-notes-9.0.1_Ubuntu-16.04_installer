@@ -34,7 +34,7 @@ if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
 		sudo rm -R temp_*
 	}
 
-	sudo gdebi temp_install/libxp6_1.0.2-2_amd64.deb
+	sudo gdebi temp_install/libxp6_1.0.2-1ubuntu1_i386.deb
 	if sudo apt-get -qq install libxp6; then
 		echo "libxp6 : successfully installed"
 	else
