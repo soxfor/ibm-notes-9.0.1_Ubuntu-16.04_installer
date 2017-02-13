@@ -1,4 +1,4 @@
-# Custom IBM Notes 9.0.1 patcher and installer for Ubuntu 16.04 systems
+# Custom IBM Notes 9.0.1 patcher and installer for Ubuntu 16.10 systems
 
 IBM Notes has been available to the Linux Operating System since 2007, and has been out as a Ubuntu compatible debian package since 2008.
 
@@ -16,7 +16,7 @@ Installing IBM Notes 9.0.1 using the script is fairly simple
 
 Before you start make sure that you have :
 
-* Ubuntu 16.04 installed
+* Ubuntu 16.10 installed
 * The IBM Notes deb package/tar downloaded from the official IBM Notes download site (Download file will look somewhat like this : NOTES_9.0.1_LINUX_DI_EN.tar)
 * The Installation script downloaded
 
@@ -39,13 +39,13 @@ Example
 tar xvf NOTES_9.0.1_LINUX_DI_EN.tar -C IBM
 ```
 
-2 - Run the insllation script 
+2 - Run the insllation script
 
-Syntax : \[path to Ubuntu-16.04_IBM-Notes-9.0.1.sh\] \[path to ibm-notes-9.0.1.i586.deb\]
+Syntax : \[path to Ubuntu-16.10_IBM-Notes-9.0.1.sh\] \[path to ibm-notes-9.0.1.i586.deb\]
 
 Example
 ```
-./Ubuntu-16.04_IBM-Notes-9.0.1.sh IBM/ibm-notes-9.0.1.i586.deb
+./Ubuntu-16.10_IBM-Notes-9.0.1.sh IBM/ibm-notes-9.0.1.i586.deb
 ```
 
 ###

@@ -19,34 +19,20 @@
 # Information on usage and execution is available in the README that comes with this file
 # This installation script comes WITHOUT any IBM software and must be installed by the user himself
 
-echo "Ubuntu 16.04 Installer for IBM notes 9.0.1"
+echo "Ubuntu 16.10 Installer for IBM notes 9.0.1"
 
 if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
-
-	echo "Installing necessary packages before installation"
-
-	sudo apt-get install libbonobo2-0 libbonoboui2-0 libgconf2-4 libgnomeui-0 libjpeg62 gdebi
-	sudo apt-get install libgnome-desktop-*
 
 	echo "Getting necessary unsupported/unofficial dependencies"
 
 	mkdir temp_install
 
-	wget http://security.ubuntu.com/ubuntu/pool/universe/g/gnome-desktop/libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb -P temp_install/
-	wget http://launchpadlibrarian.net/183708483/libxp6_1.0.2-2_amd64.deb -P temp_install/
+	wget http://mirrors.kernel.org/ubuntu/pool/main/libx/libxp/libxp6_1.0.2-1ubuntu1_i386.deb -P temp_install/
 
 	function clean
 	{
 		sudo rm -R temp_*
 	}
-
-	sudo gdebi temp_install/libgnome-desktop-2-17_2.32.1-2ubuntu1_amd64.deb
-	if sudo apt-get -qq install libgnome-desktop-2-17; then
-		echo "libgnome-desktop-2-17 : successfully installed"
-	else
-		echo "libgnome-desktop-2-17 : installation unsuccessful"
-		exit 1
-	fi
 
 	sudo gdebi temp_install/libxp6_1.0.2-2_amd64.deb
 	if sudo apt-get -qq install libxp6; then
@@ -65,8 +51,10 @@ if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
 	sudo dpkg -X $1 ./temp_notes_unpacked
 	sudo dpkg -e $1 ./temp_notes_unpacked/DEBIAN
 	sudo sed -i 's/libcupsys2/libcups2/g' ./temp_notes_unpacked/DEBIAN/control
-	sudo sed -i 's/ libgnome-desktop-2 | libgnome-desktop-2-7 | libgnome-desktop-2-11 | libgnome-desktop-2-17 | libgnome-desktop-3-2,//g' ./temp_notes_unpacked/DEBIAN/control
+	sudo sed -i 's/libgnome-desktop-3-2/libgnome-desktop-3-12/g' ./temp_notes_unpacked/DEBIAN/control
+	sudo sed -i 's/libpng12-0/libpng16-16/g' ./temp_notes_unpacked/DEBIAN/control
 	sudo sed -i 's/ libxp6,//g' ./temp_notes_unpacked/DEBIAN/control
+	sudo sed -i 's/libz1/zlib1g/g' ./temp_notes_unpacked/DEBIAN/control
 
 	sudo dpkg -b temp_notes_unpacked $1
 
