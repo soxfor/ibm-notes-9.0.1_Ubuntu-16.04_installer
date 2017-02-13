@@ -26,9 +26,9 @@ To install IBM Notes 9.0.1 via graphical user interface such as an GUI file mana
 
 1 - Extract the IBM deb tar to any directory (make sure you remember where), in the end you will have 7 different files, 5 of them being deb packages (activites, feedreader, notes, opensocial, sametime + a license file and a broken "smartupgrade" script)
 
-2 - To keep things simpler, copy the Ubuntu-16.04_IBM-Notes-9.0.1.sh installation script into the the extracted directory
+2 - To keep things simpler, copy the Ubuntu-16.10_IBM-Notes-9.0.1.sh installation script into the the extracted directory
 
-3 - Finally, drag ONLY the ibm-notes-9.0.1.i586.deb file into the Ubuntu-16.04_IBM-Notes-9.0.1.sh file/icon
+3 - Finally, drag ONLY the ibm-notes-9.0.1.i586.deb file into the Ubuntu-16.10_IBM-Notes-9.0.1.sh file/icon
 
 #### From Command line
 
