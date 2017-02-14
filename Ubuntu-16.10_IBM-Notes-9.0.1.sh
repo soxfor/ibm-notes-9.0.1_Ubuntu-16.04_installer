@@ -72,6 +72,42 @@ if [ $(basename $1) == "ibm-notes-9.0.1.i586.deb" ]; then
 	cd ../
 
 	echo "Successfully installed IBM Notes 9.0.1"
+elif [ $(basename $1) == "ibm-sametime-9.0.1.i586.deb" ]; then
+	
+	if ! sudo apt-get -qq install ibm-notes; then
+		echo "Please install ibm-notes-9.0.1.i586.deb first."
+	else
+		mkdir temp_install
+		
+		function clean
+		{
+			sudo rm -R temp_*
+		}
+		
+		echo "Patching the ibm-sametime-9.0.1.i586.deb package"
+		echo "This may take a while depending on your hardware"
+
+		sleep 5
+		
+		sudo dpkg -X $1 ./temp_sametime_unpacked
+		sudo dpkg -e $1 ./temp_sametime_unpacked/DEBIAN
+		sudo sed -i 's/iproute/iproute2/g' ./temp_sametime_unpacked/DEBIAN/control
+		sudo dpkg -b temp_sametime_unpacked $1
+		
+		echo "Done patching"
+		
+		clean
+
+		echo "Installing IBM Sametime 9.0.1 embedded client"
+		
+		sleep 5
+		
+		sudo gdebi $1
+		
+		cd ../
+		
+		echo "Successfuly installed IBM Sametime 9.0.1 embedded client"
+	fi
 
 else
 

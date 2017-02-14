@@ -1,23 +1,23 @@
-# Custom IBM Notes 9.0.1 patcher and installer for Ubuntu 16.10 systems
+# Custom IBM Notes & IBM Sametime Embedded Client 9.0.1 patcher and installer for Ubuntu 16.10 systems
 
-IBM Notes has been available to the Linux Operating System since 2007, and has been out as a Ubuntu compatible debian package since 2008.
+IBM Notes / IBM Sametime has been available to the Linux Operating System since 2007, and has been out as a Ubuntu compatible debian package since 2008.
 
 Unfortunately Ubuntu has a tendecy to deprecate many packages at each major update, some of them unfortunately even being dependencies. Some of those deprecated dependencies are required by IBM Notes and must be either installed manually or edited to use a newer version of the required dependencies.
 
-Fortunately enough it is possible to get IBM Notes running after a slight modification of the deb package.
+Fortunately enough it is possible to get IBM Notes / IBM Sametime running after a slight modification of the deb package.
 
-To achieve those modifications easily with only the matter of a single execution, I have decided to write a small script that will run the necessary "patches", and then install a fixed (or non-broken) package of IBM Notes 9.0.1.
+To achieve those modifications easily with only the matter of a single execution, I have decided to write a small script that will run the necessary "patches", and then install a fixed (or non-broken) package of IBM Notes / IBM Sametime 9.0.1.
 
 ## Usage
 
-Installing IBM Notes 9.0.1 using the script is fairly simple
+Installing IBM Notes or the IBM Sametime Embedded Client 9.0.1 using the script is fairly simple
 
 #### Before you start
 
 Before you start make sure that you have :
 
 * Ubuntu 16.10 installed
-* The IBM Notes deb package/tar downloaded from the official IBM Notes download site (Download file will look somewhat like this : NOTES_9.0.1_LINUX_DI_EN.tar)
+* The IBM Notes/IBM Sametime deb package/tar downloaded from the official IBM Notes download site (Download file will look somewhat like this : NOTES_9.0.1_LINUX_DI_EN.tar)
 * The Installation script downloaded
 
 #### From GUI
@@ -29,6 +29,8 @@ To install IBM Notes 9.0.1 via graphical user interface such as an GUI file mana
 2 - To keep things simpler, copy the Ubuntu-16.10_IBM-Notes-9.0.1.sh installation script into the the extracted directory
 
 3 - Finally, drag ONLY the ibm-notes-9.0.1.i586.deb file into the Ubuntu-16.10_IBM-Notes-9.0.1.sh file/icon
+
+Same procedure can be used for the ibm-sametime-9.0.1.i586.deb
 
 #### From Command line
 
